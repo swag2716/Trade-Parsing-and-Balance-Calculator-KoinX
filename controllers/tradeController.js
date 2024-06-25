@@ -15,7 +15,6 @@ exports.uploadCSV = (req, res) => {
     .on("end", () => {
       results.forEach((row) => {
         const [BaseCoin, QuoteCoin] = row.Market.split("/");
-        // const utcTime = moment(row.UTC_Time).format('YYYY-MM-DD HH:mm:ss');
         const trade = new Trade({
           User_Id: row.User_ID,
           UTC_Time: new Date(row.UTC_Time),
